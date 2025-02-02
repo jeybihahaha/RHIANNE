@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my  valentines date</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffccd5;
+            overflow: hidden;
+            position: relative;
+        }
+        .background-container {
+            width: 200px;
+            height: 200px;
+            background-image: url('https://media.tenor.com/3BsRwqoPs_MAAAAM/z%C5%82o%C5%9B%C4%87.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .floating-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            animation: float 5s linear infinite;
+        }
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: heartFloat 6s linear infinite;
+        }
+        .custom-message {
+            position: absolute;
+            bottom: -150px; /* Adjusted to make the message lower */
+            width: 150%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff3366;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="custom-message">YAYYY!! let's have a date after class on February 14!!!! everything is already planned out so all you need to do is show up</div> <!-- Custom message here -->
+    </div>
+    <script>
+        function createFloatingText() {
+            const messages = ['I LOVE YOU SO MUCHHHH', 'mwaaaaaaaaaaaaaa', 'mahal na mahal kitaaaaa'];
+            const text = document.createElement('div');
+            text.classList.add('floating-text');
+            text.innerText = messages[Math.floor(Math.random() * messages.length)];
+            text.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(text);
+            setTimeout(() => text.remove(), 5000);
+        }
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        setInterval(createFloatingText, 1000);
+        setInterval(createFloatingHeart, 1500);  // Add hearts at a slower rate
+    </script>
+</body>
+</html>
